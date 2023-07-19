@@ -2,7 +2,9 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const boardApi = createApi({
   reducerPath: "boardApi",
-  baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:5000/board" }),
+  baseQuery: fetchBaseQuery({
+    baseUrl: `${import.meta.env.VITE_BACKEND_URL}/board`,
+  }),
   tagTypes: ["board"],
   endpoints: (builder) => ({
     getBoards: builder.query({
